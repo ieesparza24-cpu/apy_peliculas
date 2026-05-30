@@ -8,7 +8,7 @@ async function getAll(req, res) {
 
 // Obtener una película por id
 async function getById(req, res) {
-  const pelicula = await Pelicula.findById(req.params.id);
+  const pelicula = await Pelicula.findByPk(req.params.id);
 
   if (pelicula) {
     res.json(pelicula);
@@ -25,7 +25,7 @@ async function create(req, res) {
 
 // Actualizar una película existente
 async function update(req, res) {
-  const pelicula = await Pelicula.findById(req.params.id);
+  const pelicula = await Pelicula.findByPk(req.params.id);
 
   if (pelicula) {
     await pelicula.update(req.body);
@@ -37,7 +37,7 @@ async function update(req, res) {
 
 // Eliminar una película
 async function remove(req, res) {
-  const pelicula = await Pelicula.findById(req.params.id);
+  const pelicula = await Pelicula.findByPk(req.params.id);
 
   if (pelicula) {
     await pelicula.destroy();
